@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jennifer González Miranda | Abogada — Asesoría Legal Integral</title>
+  <meta name="description" content="Abogada con amplia experiencia en Derecho Marítimo, Civil, Familiar y Asesoría a Empresas. Ejerciendo a lo largo de todo Chile." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <style>
+    /* ===================== VARIABLES ===================== */
+    :root {
+      --nude:      #bea69e;
+      --brown:     #694e3e;
+      --blush:     #e8d3ca;
+      --white:     #ffffff;
+      --cream:     #faf6f4;
+      --dark:      #1e1410;
+      --mid:       #4a3328;
+      --light-txt: #8c7068;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Jost', sans-serif;
+    }
+
+    /* ===================== RESET ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); color: var(--dark); background: var(--white); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===================== UTILS ===================== */
+    .tag {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--nude);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .divider-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem auto 1.8rem;
+    }
+    .divider-line span {
+      height: 1px;
+      width: 50px;
+      background: var(--nude);
+      opacity: 0.6;
+      display: block;
+    }
+    .divider-line i {
+      color: var(--nude);
+      font-size: 0.8rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      background: var(--brown);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn-primary:hover { background: var(--mid); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+
+    /* ===================== HEADER ===================== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.4rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+    header.scrolled {
+      background: var(--blush);
+      box-shadow: 0 1px 20px rgba(105,78,62,0.1);
+    }
+    .nav-logo {
+      height: 40px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+      flex-shrink: 0;
+    }
+    header.scrolled .nav-logo { opacity: 1; pointer-events: auto; }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.6rem;
+    }
+    nav a {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      transition: color 0.3s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--nude);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    nav a:hover::after { transform: scaleX(1); }
+    nav a:hover { color: var(--blush); }
+    header.scrolled nav a { color: var(--dark); }
+    header.scrolled nav a:hover { color: var(--brown); }
+
+    /* Hamburger */
+    #hamburger {
+      display: none;
+      position: fixed;
+      top: 1.2rem;
+      right: 5%;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 10000;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    #hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--white);
+      transition: all 0.35s cubic-bezier(.77,0,.175,1);
+      transform-origin: center;
+    }
+    body.menu-open #hamburger span,
+    header.scrolled ~ #hamburger span { background: var(--dark); }
+    #hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    #hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    #hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile menu */
+    #mobile-menu {
+      position: fixed;
+      top: 0; right: 0;
+      width: 78%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--cream);
+      z-index: 9998;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2.2rem;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(.77,0,.175,1);
+    }
+    #mobile-menu.open { transform: translateX(0); }
+    #mobile-menu a {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dark);
+      transition: color 0.3s;
+    }
+    #mobile-menu a:hover { color: var(--brown); }
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 9997;
+    }
+    .menu-overlay.open { display: block; }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      min-height: 110vh;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+      opacity: 0.12;
+    }
+    /* Viñeta suave */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(30,20,16,0.55) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+    .hero-logo {
+      width: 170px;
+      margin: 0 auto 2.4rem;
+    }
+    .hero-logo img { width: 100%; }
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--nude);
+      margin-bottom: 1.2rem;
+    }
+    #hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 6vw, 5.4rem);
+      font-weight: 900;
+      line-height: 1.04;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+    #hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--blush);
+    }
+    .hero-lead {
+      font-family: var(--font-sans);
+      font-size: clamp(0.85rem, 1.4vw, 0.98rem);
+      font-weight: 200;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      line-height: 1.9;
+      max-width: 540px;
+      margin: 1.4rem auto 2.6rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4.5rem; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 520px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(190,166,158,0.25);
+      padding-top: 2.4rem;
+    }
+    .stat {
+      text-align: center;
+      padding: 0 1.2rem;
+      border-right: 1px solid rgba(190,166,158,0.15);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--blush);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.35rem;
+    }
+
+    /* ===================== ESPECIALIDAD ===================== */
+    #especialidad {
+      background: var(--cream);
+      padding: 110px 5%;
+    }
+    .esp-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7rem;
+      align-items: center;
+    }
+    .esp-img {
+      position: relative;
+    }
+    .esp-img img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      object-position: top center;
+      position: relative;
+      z-index: 1;
+    }
+    .esp-img::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      right: 16px;
+      bottom: 16px;
+      border: 1.5px solid var(--nude);
+      opacity: 0.5;
+      z-index: 0;
+    }
+    .esp-text .tag { color: var(--brown); }
+    .esp-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .esp-text h2 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--brown);
+    }
+    .esp-text p {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--light-txt);
+      font-weight: 300;
+      margin-bottom: 1.8rem;
+    }
+    .esp-list {
+      margin-bottom: 2.2rem;
+    }
+    .esp-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.87rem;
+      font-weight: 400;
+      color: var(--dark);
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(190,166,158,0.2);
+    }
+    .esp-list li i {
+      color: var(--nude);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    /* ===================== POR QUÉ ===================== */
+    #porque {
+      background: var(--brown);
+      padding: 110px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    #porque::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+      opacity: 0.06;
+    }
+    .porque-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .porque-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .porque-header .tag { color: var(--blush); opacity: 0.7; }
+    .porque-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+    }
+    .porque-header h2 em { font-style: italic; font-weight: 400; color: var(--blush); }
+    .porque-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+    .porque-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(190,166,158,0.2);
+      padding: 2.6rem 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .porque-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(190,166,158,0.45);
+      transform: translateY(-4px);
+    }
+    .porque-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(190,166,158,0.15);
+      border: 1px solid rgba(190,166,158,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.4rem;
+      color: var(--blush);
+      font-size: 1.3rem;
+    }
+    .porque-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.7rem;
+    }
+    .porque-card p {
+      font-size: 0.83rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      font-weight: 200;
+    }
+
+    /* ===================== PROCESO ===================== */
+    #proceso {
+      background: var(--white);
+      padding: 110px 5%;
+    }
+    .proceso-inner { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .section-header h2 em { font-style: italic; font-weight: 400; color: var(--brown); }
+    .section-header p {
+      font-size: 0.88rem;
+      color: var(--light-txt);
+      font-weight: 300;
+      margin-top: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .proceso-step {
+      text-align: center;
+      padding: 2.6rem 1.6rem;
+      border: 1px solid rgba(190,166,158,0.2);
+      transition: all 0.3s;
+      position: relative;
+    }
+    .proceso-step:hover {
+      border-color: var(--nude);
+      background: var(--cream);
+      transform: translateY(-4px);
+    }
+    .paso-num {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .proceso-step h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
+    }
+    .proceso-step p {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--light-txt);
+      font-weight: 300;
+    }
+
+    /* ===================== CTA ===================== */
+    #cta {
+      background: var(--dark);
+      padding: 110px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+      opacity: 0.1;
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+    #cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    #cta h2 em { font-style: italic; font-weight: 400; color: var(--blush); }
+    #cta p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 200;
+      line-height: 1.85;
+      margin-bottom: 2.4rem;
+    }
+
+    /* ===================== INSTAGRAM ===================== */
+    #instagram {
+      background: var(--cream);
+      padding: 110px 5%;
+    }
+    .ig-inner { max-width: 1100px; margin: 0 auto; }
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.6rem;
+    }
+    .ig-frame iframe {
+      width: 100%;
+      min-height: 480px;
+      border: none;
+    }
+
+    /* ===================== FAQ ===================== */
+    #faq {
+      background: var(--white);
+      padding: 110px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    #faq::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+      opacity: 0.05;
+    }
+    .faq-inner {
+      max-width: 740px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .faq-item { border-bottom: 1px solid rgba(190,166,158,0.3); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.4rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 1rem;
+    }
+    .faq-question span {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--dark);
+      line-height: 1.4;
+      flex: 1;
+      text-align: center;
+    }
+    .faq-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--white);
+      font-size: 0.9rem;
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.active .faq-answer { max-height: 300px; }
+    .faq-answer p {
+      font-size: 0.87rem;
+      line-height: 1.85;
+      color: var(--light-txt);
+      font-weight: 300;
+      padding: 0 0 1.4rem;
+      text-align: center;
+    }
+
+    /* ===================== CONTACTO ===================== */
+    #contacto {
+      background: var(--blush);
+      padding: 110px 5%;
+    }
+    .contacto-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contacto-info .tag { color: var(--brown); }
+    .contacto-info h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .contacto-info h2 em { font-style: italic; font-weight: 400; color: var(--brown); }
+    .contacto-info > p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 2.4rem;
+      font-weight: 300;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+    .contact-item-text span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 0.2rem;
+    }
+    .contact-item-text p {
+      font-size: 0.87rem;
+      color: var(--dark);
+      font-weight: 400;
+    }
+    .contacto-form {
+      background: var(--white);
+      padding: 3rem;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--cream);
+      border: 1px solid rgba(190,166,158,0.3);
+      border-bottom: 1.5px solid rgba(105,78,62,0.25);
+      font-family: var(--font-sans);
+      font-size: 0.87rem;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--nude); border-bottom-color: var(--brown); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit { width: 100%; margin-top: 0.8rem; letter-spacing: 0.22em; }
+
+    /* ===================== MAPA ===================== */
+    #mapa { width: 100%; height: 500px; }
+    #mapa iframe { width: 100%; height: 100%; border: none; filter: grayscale(100%); }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--blush);
+      border-top: 1px solid rgba(190,166,158,0.4);
+      padding: 60px 5% 30px;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand img { height: 48px; margin-bottom: 1rem; }
+    .footer-brand p {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+    .footer-socials { display: flex; gap: 0.7rem; }
+    .footer-social {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.85rem;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .footer-social:hover { opacity: 0.8; transform: translateY(-2px); }
+    .footer-col h4 {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col li { margin-bottom: 0.55rem; }
+    .footer-col li a {
+      font-size: 0.82rem;
+      color: var(--mid);
+      font-weight: 300;
+      transition: color 0.3s;
+    }
+    .footer-col li a:hover { color: var(--brown); }
+    .footer-bottom {
+      border-top: 1px solid rgba(190,166,158,0.35);
+      padding-top: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom p {
+      font-size: 0.74rem;
+      color: var(--light-txt);
+      font-weight: 300;
+    }
+    .footer-bottom a { color: var(--brown); font-weight: 500; }
+
+    /* ===================== WA FLOAT ===================== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      color: var(--white);
+      font-size: 1.5rem;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+      animation: wa-pulse 2.5s infinite;
+      transition: transform 0.3s;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+    @keyframes wa-pulse {
+      0%,100% { box-shadow: 0 4px 16px rgba(37,211,102,0.35); }
+      50%      { box-shadow: 0 4px 28px rgba(37,211,102,0.6), 0 0 0 8px rgba(37,211,102,0.08); }
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+
+    /* Tablet landscape ≤1024px */
+    @media (max-width: 1024px) {
+      .esp-inner { grid-template-columns: 1fr; gap: 3.5rem; }
+      .esp-img img { height: 400px; }
+      .porque-grid { grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+      .proceso-grid { grid-template-columns: repeat(2, 1fr); }
+      .ig-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .contacto-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    /* Tablet portrait ≤768px */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      #hamburger { display: flex; }
+      header { justify-content: center; }
+
+      .porque-grid { grid-template-columns: 1fr; }
+      .proceso-grid { grid-template-columns: 1fr; }
+      .ig-grid { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand img { margin: 0 auto 1rem; }
+      .footer-socials { justify-content: center; }
+      .footer-bottom { justify-content: center; text-align: center; }
+      #mapa { height: 350px; }
+
+      /* Centrado responsive */
+      .esp-img::before { display: none; }
+      .esp-text { text-align: center; }
+      .esp-list li { justify-content: center; }
+      .contact-item { flex-direction: column; align-items: center; text-align: center; }
+      .contact-item-text { text-align: center; }
+      .contacto-info h2, .contacto-info > p { text-align: center; }
+      .contacto-info .tag { display: block; text-align: center; }
+      .divider-line { justify-content: center !important; }
+
+      #especialidad, #porque, #proceso, #cta, #instagram, #faq, #contacto { padding: 75px 5%; }
+      footer { padding: 50px 5% 25px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contacto-form { padding: 2rem; }
+      .footer-col { text-align: center; }
+    }
+
+    /* Mobile ≤600px */
+    @media (max-width: 600px) {
+      #hero { padding: 110px 6% 70px; }
+      .hero-logo { width: 130px; }
+      #hero h1 { font-size: 2.4rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-stats { grid-template-columns: 1fr; border-top: none; gap: 1rem; }
+      .hero-stats .stat { border-right: none; border-bottom: 1px solid rgba(190,166,158,0.2); padding: 0.9rem 0; }
+      .hero-stats .stat:last-child { border-bottom: none; }
+      .section-header h2 { font-size: 1.9rem; }
+      .contacto-form { padding: 1.6rem; }
+      .footer-grid { gap: 2rem; }
+      .wa-float { bottom: 18px; right: 18px; }
+    }
+
+    /* Mobile pequeño ≤400px */
+    @media (max-width: 400px) {
+      #hero h1 { font-size: 2rem; }
+      .btn-primary, .btn-outline { padding: 0.8rem 1.6rem; font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header id="header">
+  <img src="./logo.png" alt="Jennifer González Miranda" class="nav-logo" id="nav-logo" />
+  <nav>
+    <a href="#especialidad">Especialidad</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#faq">Preguntas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<!-- Hamburger fuera del header -->
+<button id="hamburger" aria-label="Menú">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Mobile menu -->
+<div class="menu-overlay" id="menu-overlay"></div>
+<nav id="mobile-menu">
+  <a href="#especialidad">Especialidad</a>
+  <a href="#porque">Por qué elegirnos</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#instagram">Instagram</a>
+  <a href="#faq">Preguntas frecuentes</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-logo">
+      <img src="./logo.png" alt="Jennifer González Miranda — Abogada" />
+    </div>
+    <p class="hero-eyebrow">Asesoría Legal Integral — Chile</p>
+    <h1>Derecho con<br/><em>experiencia y criterio</em></h1>
+    <p class="hero-lead">Abogada con sólida formación académica y amplia trayectoria en Derecho Marítimo, Civil, Familiar y Asesoría Empresarial. Soluciones jurídicas personalizadas a lo largo de todo Chile.</p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn-primary">Solicitar asesoría</a>
+      <a href="#especialidad" class="btn-outline">Ver especialidades</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">+14</div>
+        <div class="stat-label">Años de carrera</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">+8</div>
+        <div class="stat-label">Especialidades</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Online y presencial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ESPECIALIDAD ===================== -->
+<section id="especialidad">
+  <div class="esp-inner">
+    <div class="esp-img">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Abogada profesional" />
+    </div>
+    <div class="esp-text">
+      <span class="tag">Especialidades</span>
+      <h2>Formación sólida,<br/><em>resultados concretos</em></h2>
+      <div class="divider-line" style="justify-content:flex-start;margin-left:0;">
+        <span></span>
+        <i class="fa-solid fa-scale-balanced"></i>
+        <span></span>
+      </div>
+      <p>Soy una abogada comprometida con la constante mejora y actualización en diversas áreas del derecho. Mi misión no es solo ganar un caso, sino también educar a mis clientes, brindándoles el conocimiento necesario para que comprendan cada paso del proceso.</p>
+      <ul class="esp-list">
+        <li><i class="fa-solid fa-chevron-right"></i>Derecho Civil y situaciones de excepcionalidad</li>
+        <li><i class="fa-solid fa-chevron-right"></i>Derecho Marítimo — diplomado PUC Valparaíso</li>
+        <li><i class="fa-solid fa-chevron-right"></i>Derecho de Familia</li>
+        <li><i class="fa-solid fa-chevron-right"></i>Derecho Laboral (trabajador y empleador)</li>
+        <li><i class="fa-solid fa-chevron-right"></i>Asesoría a empresas y derecho societario</li>
+        <li><i class="fa-solid fa-chevron-right"></i>Procedimientos especiales (postítulo UDEC)</li>
+        <li><i class="fa-solid fa-chevron-right"></i>Derecho de aguas y títulos inmuebles urbanos</li>
+        <li><i class="fa-solid fa-chevron-right"></i>Tramitación ante juzgado de policía local</li>
+      </ul>
+      <a href="#contacto" class="btn-primary">Hablemos de tu caso</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POR QUÉ ===================== -->
+<section id="porque">
+  <div class="porque-inner">
+    <div class="porque-header">
+      <span class="tag">Por qué elegirnos</span>
+      <h2>Más que una abogada,<br/><em>una aliada legal</em></h2>
+      <div class="divider-line">
+        <span style="background:rgba(190,166,158,0.4);"></span>
+        <i class="fa-solid fa-scale-balanced" style="color:rgba(232,211,202,0.5);"></i>
+        <span style="background:rgba(190,166,158,0.4);"></span>
+      </div>
+    </div>
+    <div class="porque-grid">
+      <div class="porque-card">
+        <div class="porque-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>Formación permanente</h3>
+        <p>Diplomados nacionales e internacionales en diversas ramas del derecho. Actualización continua conforme a los cambios legislativos vigentes.</p>
+      </div>
+      <div class="porque-card">
+        <div class="porque-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+        <h3>Clientes informados</h3>
+        <p>Mi misión es que entiendas cada etapa de tu proceso. Te brindo el conocimiento necesario para que tomes decisiones con plena conciencia.</p>
+      </div>
+      <div class="porque-card">
+        <div class="porque-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+        <h3>Cobertura nacional</h3>
+        <p>Atención presencial y online a lo largo de todo Chile. Tecnología al servicio del derecho: rápido, seguro y confidencial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESO ===================== -->
+<section id="proceso">
+  <div class="proceso-inner">
+    <div class="section-header">
+      <span class="tag" style="color:var(--brown);">Cómo trabajo</span>
+      <h2>Tu caso, paso a <em>paso</em></h2>
+      <div class="divider-line">
+        <span></span>
+        <i class="fa-solid fa-scale-balanced" style="color:var(--nude);"></i>
+        <span></span>
+      </div>
+      <p>Un proceso transparente, sin tecnicismos innecesarios.</p>
+    </div>
+    <div class="proceso-grid">
+      <div class="proceso-step">
+        <div class="paso-num">01</div>
+        <h3>Primera consulta</h3>
+        <p>Me cuentas tu situación. Analizamos el caso, tus opciones legales y el camino más conveniente para ti.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="paso-num">02</div>
+        <h3>Diagnóstico legal</h3>
+        <p>Evaluación de documentación y derechos. Te explico con claridad qué podemos hacer y qué esperar.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="paso-num">03</div>
+        <h3>Estrategia y acción</h3>
+        <p>Desarrollamos la estrategia más efectiva. Me encargo de todos los pasos judiciales y extrajudiciales.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="paso-num">04</div>
+        <h3>Resolución</h3>
+        <p>Te acompaño hasta el cierre del proceso, con seguimiento constante y comunicación clara en cada etapa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section id="cta">
+  <div class="cta-inner">
+    <span class="tag" style="color:var(--blush);opacity:0.7;">Empezá hoy</span>
+    <h2>¿Tenés una duda legal?<br/><em>Consultame</em></h2>
+    <div class="divider-line">
+      <span style="background:rgba(190,166,158,0.3);"></span>
+      <i class="fa-solid fa-scale-balanced" style="color:rgba(190,166,158,0.5);"></i>
+      <span style="background:rgba(190,166,158,0.3);"></span>
+    </div>
+    <p>Cada día sin asesoramiento puede afectar el resultado de tu caso. Escríbeme y conversamos sin compromiso.</p>
+    <a href="https://wa.me/56945277752" target="_blank" class="btn-primary">
+      <i class="fa-brands fa-whatsapp"></i>&nbsp;&nbsp;Escribir por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ===================== INSTAGRAM ===================== -->
+<section id="instagram">
+  <div class="ig-inner">
+    <div class="section-header">
+      <span class="tag" style="color:var(--brown);">Instagram</span>
+      <h2>Contenido legal útil en <em>Instagram</em></h2>
+      <div class="divider-line">
+        <span></span>
+        <i class="fa-brands fa-instagram" style="color:var(--nude);"></i>
+        <span></span>
+      </div>
+      <p>Tips, derechos y novedades legales — <a href="https://www.instagram.com/jgabogada/" target="_blank" style="color:var(--brown);font-weight:500;">@jgabogada</a></p>
+    </div>
+    <div class="ig-grid">
+      <div class="ig-frame">
+        <iframe src="https://www.instagram.com/p/DUV4YCBEQ_Z/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+      <div class="ig-frame">
+        <iframe src="https://www.instagram.com/p/DVMsZr2kTdp/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+      <div class="ig-frame">
+        <iframe src="https://www.instagram.com/p/DU83vdAEerb/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="section-header">
+      <span class="tag" style="color:var(--brown);">Preguntas frecuentes</span>
+      <h2>Lo que más <em>me preguntan</em></h2>
+      <div class="divider-line">
+        <span></span>
+        <i class="fa-solid fa-scale-balanced" style="color:var(--nude);"></i>
+        <span></span>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Realizás consultas de forma online?</span>
+        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+      </button>
+      <div class="faq-answer">
+        <p>Sí, ofrezco asesoría completamente online para todo Chile. Puedes contactarme por WhatsApp o email para coordinar una videollamada según tu disponibilidad. La tecnología me permite entregarte un servicio rápido, seguro y confidencial sin que tengas que salir de tu casa.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿En qué regiones de Chile atendés?</span>
+        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+      </button>
+      <div class="faq-answer">
+        <p>Ejerzo a lo largo de todo Chile, tanto de forma presencial como online. Mi cobertura nacional me permite acompañar a clientes sin importar su ubicación geográfica.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Cuánto cuesta una consulta?</span>
+        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+      </button>
+      <div class="faq-answer">
+        <p>Los honorarios varían según el tipo de consulta y la complejidad del caso. Contáctame directamente para que pueda orientarte y darte un presupuesto personalizado según tu situación específica.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Qué diferencia hay entre Derecho Civil y Derecho de Familia?</span>
+        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+      </button>
+      <div class="faq-answer">
+        <p>El Derecho Civil regula las relaciones entre personas en materias como contratos, propiedad y responsabilidad. El Derecho de Familia se enfoca en las relaciones familiares: matrimonio, divorcio, alimentos, tuición y adopción. Ambas áreas se complementan frecuentemente en la práctica.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Qué es el Derecho Marítimo y cuándo lo necesito?</span>
+        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+      </button>
+      <div class="faq-answer">
+        <p>El Derecho Marítimo regula todas las actividades vinculadas al mar: transporte de mercancías, contratos navieros, seguro marítimo, accidentes en el mar y defensa de tripulantes. Si tu actividad o conflicto está relacionado con embarcaciones, puertos o comercio marítimo, puedes necesitar este tipo de asesoría especializada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section id="contacto">
+  <div class="contacto-inner">
+    <div class="contacto-info">
+      <span class="tag">Contacto</span>
+      <h2>Hablemos de<br/><em>tu caso</em></h2>
+      <div class="divider-line" style="justify-content:flex-start;margin-left:0;">
+        <span></span>
+        <i class="fa-solid fa-scale-balanced" style="color:var(--nude);"></i>
+        <span></span>
+      </div>
+      <p>Completa el formulario o contáctame directamente. Respondo a la brevedad para coordinar una asesoría presencial u online.</p>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="contact-item-text">
+          <span>WhatsApp</span>
+          <p>+56 9 4527 7752</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+        <div class="contact-item-text">
+          <span>Email</span>
+          <p>abogadajennifergonzalez@hotmail.com</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+        <div class="contact-item-text">
+          <span>Instagram</span>
+          <p>@jgabogada</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div class="contact-item-text">
+          <span>Cobertura</span>
+          <p>Todo Chile — Presencial y Online</p>
+        </div>
+      </div>
+    </div>
+    <div class="contacto-form">
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" placeholder="+56 9 0000 0000" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="area">Área legal</label>
+          <select id="area">
+            <option value="">Selecciona un área</option>
+            <option>Derecho Civil</option>
+            <option>Derecho Marítimo</option>
+            <option>Derecho de Familia</option>
+            <option>Derecho Laboral</option>
+            <option>Asesoría a empresas</option>
+            <option>Procedimientos especiales</option>
+            <option>Derecho de aguas</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Cuéntame tu situación</label>
+          <textarea id="mensaje" placeholder="Describe brevemente tu caso para orientarte mejor..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary form-submit">
+          <i class="fa-brands fa-whatsapp"></i>&nbsp;&nbsp;Enviar por WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MAPA ===================== -->
+<div id="mapa">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6649888.728297!2d-75.0!3d-35.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x830b571da6a5978!2sChile!5e0!3m2!1ses!2scl!4v1"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="./logo.png" alt="Jennifer González Miranda" />
+        <p>Abogada con amplia experiencia en múltiples ramas del derecho. Soluciones jurídicas personalizadas a lo largo de todo Chile.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jgabogada/" target="_blank" class="footer-social" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/56945277752" target="_blank" class="footer-social" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Especialidades</h4>
+        <ul>
+          <li><a href="#especialidad">Derecho Civil</a></li>
+          <li><a href="#especialidad">Derecho Marítimo</a></li>
+          <li><a href="#especialidad">Derecho de Familia</a></li>
+          <li><a href="#especialidad">Derecho Laboral</a></li>
+          <li><a href="#especialidad">Asesoría empresarial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#porque">Por qué elegirnos</a></li>
+          <li><a href="#proceso">Cómo trabajo</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/56945277752" target="_blank">+56 9 4527 7752</a></li>
+          <li><a href="mailto:abogadajennifergonzalez@hotmail.com">abogadajennifergonzalez@hotmail.com</a></li>
+          <li><a href="https://www.instagram.com/jgabogada/" target="_blank">@jgabogada</a></li>
+          <li><a href="#contacto">Todo Chile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Jennifer González Miranda — Abogada. Todos los derechos reservados.</p>
+      <p>Desarrollado por <a href="https://www.instagram.com/sageedev/" target="_blank">@sageeDev</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== WA FLOAT ===================== -->
+<a href="https://wa.me/56945277752" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+  // Navbar scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', function () {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const overlay    = document.getElementById('menu-overlay');
+
+  function toggleMenu() {
+    const isOpen = !mobileMenu.classList.contains('open');
+    hamburger.classList.toggle('open', isOpen);
+    mobileMenu.classList.toggle('open', isOpen);
+    overlay.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', isOpen);
+  }
+  hamburger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+  document.querySelectorAll('#mobile-menu a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function (q) {
+    q.addEventListener('click', function () {
+      const item     = q.parentElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('active'); });
+      if (!isActive) item.classList.add('active');
+    });
+  });
+
+  // Form → WhatsApp
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nombre   = document.getElementById('nombre').value;
+    var telefono = document.getElementById('telefono').value;
+    var area     = document.getElementById('area').value;
+    var mensaje  = document.getElementById('mensaje').value;
+    var txt = 'Hola Jennifer, soy *' + nombre + '* y necesito asesoría legal.';
+    if (area)    txt += '\n\n*Área:* ' + area;
+    if (mensaje) txt += '\n\n*Consulta:*\n' + mensaje;
+    txt += '\n\n*Teléfono:* ' + telefono;
+    window.open('https://wa.me/56945277752?text=' + encodeURIComponent(txt), '_blank');
+  });
+</script>
+</body>
+</html>
